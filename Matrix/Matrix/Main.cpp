@@ -1,6 +1,11 @@
 ﻿#include <iostream>
 #include "Matrix.h"
 using namespace std;
+
+int square(int a, int i, int j) {
+	return a * a;
+}
+
 int main() {
 	setlocale(0, "ru");
 	Matrix A;
@@ -22,4 +27,11 @@ int main() {
 	A.diagonal();
 	cout << "Матрица A:" << endl << A.get_string() << endl;
 	cout << "Определитель матрицы А: " << A.determinant() << endl;
+
+
+	A.apply( square );
+	cout << "Матрица A:" << endl << A.get_string() << endl;
+
+	A.apply(  [](int a, int i, int j) -> int {return i * 10 + j; }  ) ;
+	cout << "Матрица A:" << endl << A.get_string() << endl;
 }

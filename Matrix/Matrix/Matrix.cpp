@@ -214,4 +214,15 @@ Matrix::Matrix(const Matrix& other)
 {
 	*this = other;
 }
+
+void Matrix::apply(func3param func)
+{
+	for (int i = 0; i < this->rows; i++)
+	{
+		for (int k = 0; k < this->cols; k++)
+		{
+			this->matrix[i][k] = func(this->matrix[i][k], i, k);
+		}
+	}
+}
  

@@ -1,4 +1,10 @@
 #pragma once
+
+using
+func3param = int(*)(int, int, int);
+
+
+
 class Matrix
 {
 private:
@@ -24,5 +30,7 @@ public:
 	~Matrix();									// деконструктор
 	Matrix(int new_rows, int new_cols);			// конструктор с параметрами
 	Matrix(const Matrix& other);				// конструктор копиравнием
+
+	void apply(func3param func);
 };
 
